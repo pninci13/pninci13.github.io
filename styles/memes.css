@@ -1,0 +1,39 @@
+#second-bg{
+    background-color: #424242;
+    scroll-behavior: smooth; 
+}
+
+#img-one{
+    margin: auto;
+    display: block;
+    height: 400px;
+    width: 400px;
+    border-style: solid;
+    border-color: #8842fa;
+    border-width: 3px;
+    border-radius: 8px;
+}
+
+#img-two{
+    border-radius: 8px;
+    height: 400px;
+    width: 500px;
+    margin: auto;
+    display: block;
+    border-style: solid;
+    border-color: #8842fa;
+    border-width: 3px;
+    border-radius: 8px;
+}
+
+#img-three{
+    border-radius: 8px;
+    height: 700px;
+    width: 500px;
+    margin: auto;
+    display: block;
+    border-style: solid;
+    border-color: #8842fa;
+    border-width: 3px;
+    border-radius: 8px;
+}

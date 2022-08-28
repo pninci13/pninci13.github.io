@@ -11,7 +11,7 @@ function onClick(value) {
 
 
 function validate(value) {
-    operationsList = ['+', '-', '+', '/'];
+    operationsList = ['+', '-', '*', '/'];
     if (concatValue.length > 0 && !operationsList.includes(concatValue.charAt(concatValue.length - 1))) {
         onClick(value);
     }

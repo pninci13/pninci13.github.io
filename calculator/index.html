@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="calc.js" defer></script>
+  </head>
+  <body>
+    <div class="calculator">
+      <div id="result-screen">
+        <!-- <div class="previous-number"></div> -->
+        <div id="current-number"></div>
+      </div>
+        <button class="two-spaced" onclick="doAction(value)" value="AC">AC</button>
+        <button onclick="onClick(value)" value="DEL">DEL</button>
+        <button onclick="validate(value)" value="/" class="div-sign">÷</button>
+        <button onclick="onClick(value)" value="1">1</button>
+        <button onclick="onClick(value)" value="2">2</button>
+        <button onclick="onClick(value)" value="3">3</button>
+        <button onclick="onClick(value)" value="*" id="mult-sign">*</button>
+        <button onclick="onClick(value)" value="4">4</button>
+        <button onclick="onClick(value)" value="5">5</button>
+        <button onclick="onClick(value)" value="6">6</button>
+        <button onclick="onClick(value)" value="+" id="plus-sign">+</button>
+        <button onclick="onClick(value)" value="7">7</button>
+        <button onclick="onClick(value)" value="8">8</button>
+        <button onclick="onClick(value)" value="9">9</button>
+        <button onclick="onClick(value)" value="-" id="less-sign">-</button>
+        <button onclick="onClick(value)" value=".">.</button>
+        <button onclick="onClick(value)" value="0">0</button>
+        <button onclick="doAction(value)" value="=" class="two-spaced">=</button>
+    </div>
+  </body>
+</html>

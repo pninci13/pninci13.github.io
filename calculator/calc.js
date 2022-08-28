@@ -33,5 +33,4 @@ function doAction(value) {
 }
 
 function computeResult() {
-    
 }

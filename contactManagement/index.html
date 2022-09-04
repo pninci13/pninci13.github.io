@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="images/add-contact.png">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="script.js"></script>
+
+    <body>
+        <div id="top-section">
+            <h1>My contacts</h1>
+        </div>
+
+        <div class="main-div">
+            <div class="search">
+                <input type="search" placeholder="Search" id="search-bar" data-search>
+                <button type="submit" id="search-btn"><i class="fa fa-search"></i></button>
+            </div>   
+    
+            <div class="inputs">
+                <div class="name">
+                    <input type="text" id="name-input" class="form-control m-2 bg-light border"  placeholder="Name" maxlength="15">
+                </div>
+        
+                <div class="number">
+                    <input type="number" id="number-input" class="form-control m-2 bg-light border" class="p-2 bg-light border" placeholder="Number" maxlength="15">
+                </div>
+        
+                <div class="done">
+                    <button class="btn btn-success" onclick="getInputValues()">Done</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="table">
+            <table>
+                <thead class="table-head">
+                    <tr>
+                        <th id="id-column">ID</th>
+                        <th id="name-column">Name</th>
+                        <th id="phone-number-column">Phone Number</th>      
+                        <th id="remove">Options</th>      
+                    </tr>
+                </thead>
+                
+                <tbody id="tableData"></tbody>
+              </table>
+        </div>
+    </body>
+</html>

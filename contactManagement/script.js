@@ -1,8 +1,9 @@
 let count = 0;  //Count is used as a counter for the id
-let dataList = [];      
+let dataListFiltered = [];    
+let dataList = [];    
 
 function getInputValues() {
-    let obj = {id: "", personName: "", number: ""};
+    let obj = { id: "", personName: "", number: "" };
 
     let name = document.getElementById("name-input").value;
     let number = document.getElementById("number-input").value;
@@ -11,10 +12,10 @@ function getInputValues() {
     obj.number = number;
     obj.id = count++;
 
-    // console.log(name);
-    // console.log(number);
-
     dataList.push(obj);
+    dataListFiltered = dataList;
+
+    saveStorage(); // save the data on local storage
 
     document.getElementById("name-input").value = "";
     document.getElementById("number-input").value = "";
@@ -26,9 +27,9 @@ function getInputValues() {
 function loadTable() {
     const tableBody = document.getElementById("tableData");
     let dataHTML = "";
-
-    for (let obj = 0; obj < dataList.length; obj++) {
-        dataHTML += `<tr><td>${dataList[obj].id}</td><td>${dataList[obj].personName}</td><td>${dataList[obj].number}</td><td><button onclick="removeData(${dataList[obj].id})" class="btn btn-danger">Remove</button></td></tr>`;
+    dataListFiltered = dataListFiltered.sort((a, b) => (a.personName).localeCompare(b.personName));
+    for (let obj = 0; obj < dataListFiltered.length; obj++) {
+        dataHTML += `<tr><td>${dataListFiltered[obj].id}</td><td>${dataListFiltered[obj].personName}</td><td>${dataListFiltered[obj].number}</td><td><button onclick="removeData(${dataListFiltered[obj].id})" class="btn btn-danger">Remove</button></td></tr>`;
     }
     // console.log(dataHTML);
     tableBody.innerHTML = dataHTML;
@@ -40,16 +41,36 @@ function removeData(obj) {
     let text = "Are you sure you want to remove?";
     if (confirm(text) == true) {
         dataList = dataList.filter((data) => data.id !== obj);
+        dataListFiltered = dataList;
+        saveStorage();
         loadTable();
     } else{}  
 }
 
-
 // SEARCH FUNCTION
-// const searchInput = document.querySelector("[data-search]")
+function searchAndLoad(e) {
+    if (e.target.value === undefined || e.target.value === "") {
+        dataListFiltered = dataList;
+    } else {
+        dataListFiltered = dataList.filter((data) => data.personName.toLowerCase().includes(e.target.value.toLowerCase()));
+    }
+    loadTable();
+}
 
-// searchInput.addEventListener("input", (e) => {
-//     const value = e.target.value
-//     console.log(value);
-// });
+function saveStorage() {
+    // convert to string the object
+    localStorage.setItem("cache", JSON.stringify({"dataList": dataList, "dataListFiltered": dataListFiltered , "count": count}));
+}
+
+window.onload = () => {
+    document.querySelector(".search-bar").addEventListener("input", searchAndLoad);
+
+    if (localStorage.getItem("cache")) {
+        let cache = JSON.parse(localStorage.getItem("cache"));
+        dataList = cache.dataList;
+        dataListFiltered = cache.dataListFiltered;
+        count = cache.count;
+        loadTable();
+    }
+}
 
